@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YugiohLifeCounter.MainPage">
+    <VerticalStackLayout Padding="16" Spacing="12">
+
+        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+            <Frame Grid.Column="0" Padding="16">
+                <VerticalStackLayout>
+                    <Label Text="Jugador 1" FontSize="18"/>
+                    <Label Text="{Binding P1LifePoints}" FontSize="48"/>
+                    <Button Text="-100" Command="{Binding P1Minus100Command}"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Grid.Column="1" Padding="16">
+                <VerticalStackLayout>
+                    <Label Text="Jugador 2" FontSize="18"/>
+                    <Label Text="{Binding P2LifePoints}" FontSize="48"/>
+                    <Button Text="-100" Command="{Binding P2Minus100Command}"/>
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+
+        <HorizontalStackLayout Spacing="12">
+            <Button Text="Undo" Command="{Binding UndoCommand}" />
+            <Button Text="Redo" Command="{Binding RedoCommand}" />
+        </HorizontalStackLayout>
+
+        <Label Text="Log" FontSize="18"/>
+        <CollectionView ItemsSource="{Binding Log}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding Player}" />
+                                <Span Text=" " />
+                                <Span Text="{Binding Delta}" />
+                                <Span Text=" → " />
+                                <Span Text="{Binding NewLifePoints}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>
