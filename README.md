@@ -131,3 +131,72 @@ If you see MVVM Toolkit errors about Windows SDK references, update your .NET SD
 ```bash
 dotnet restore
 dotnet build ./src/YugiohLifeCounter/YugiohLifeCounter.csproj -f net8.0-windows10.0.19041.0
+
+### Run tests
+
+```bash
+dotnet test
+```
+
+---
+
+## Export log format (TXT)
+
+The export matches the original behavior:
+
+* Header with duel title
+* Current LP per player
+* Duel duration
+* History ordered from first change to last change, including timestamp, change, resulting LP, and optional expression
+
+Example:
+
+```
+Yu-Gi-Oh! Duel Log
+===================
+
+Player 1: 6500 LP
+Player 2: 8000 LP
+Duration: 3m 12s
+
+History:
+--------
+1. [15:02:01] Player 1: -1500 → 6500 LP (-1500)
+```
+
+---
+
+## Roadmap (high level)
+
+* [ ] Finish 1:1 UI parity with the TSX prototype (layout, spacing, typography)
+* [ ] Implement local persistence for:
+
+  * game state + undo stack
+  * notes
+  * settings
+* [ ] Optional: sound + haptics toggles wired per platform
+* [ ] Optional: “keep screen on” wiring per platform
+* [ ] Polish + packaging (Windows MSIX / Android APK/AAB)
+
+---
+
+## Contributing
+
+* Keep domain logic inside **Core** (pure + testable)
+* Keep UI logic inside **MAUI** project (ViewModels bind to services)
+* Add tests for any domain rule changes (`YugiohLifeCounter.Core.Tests`)
+* Prefer small commits with clear messages
+
+---
+
+## Credits
+
+* Original functional reference: Next.js / React (TSX) prototype
+* UI inspiration: mobile-first duel tracker design principles
+* Built as a clean, testable port to .NET MAUI
+
+---
+
+```
+::contentReference[oaicite:0]{index=0}
+```
