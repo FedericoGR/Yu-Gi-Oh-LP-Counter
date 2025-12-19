@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YugiohLifeCounter.Views.CalculatorPage"
+             Title="Calculator">
+
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <Label Text="{Binding Header}" FontSize="18" />
+        <Label Text="{Binding Current}" FontSize="14" Opacity="0.8" />
+        <Label Text="{Binding Preview}" FontSize="22" />
+
+        <Entry Placeholder="e.g. 8k, +1000, *2, %2"
+               Text="{Binding Expression}"
+               Keyboard="Text" />
+
+        <HorizontalStackLayout Spacing="12">
+            <Button Text="+1000" Command="{Binding QuickCommand}" CommandParameter="+1000"/>
+            <Button Text="-1000" Command="{Binding QuickCommand}" CommandParameter="-1000"/>
+            <Button Text="*2" Command="{Binding QuickCommand}" CommandParameter="*2"/>
+            <Button Text="%2" Command="{Binding QuickCommand}" CommandParameter="%2"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="12">
+            <Button Text="Cancel" Command="{Binding CancelCommand}" />
+            <Button Text="Apply" Command="{Binding ApplyCommand}" />
+        </HorizontalStackLayout>
+
+        <Label Text="{Binding Error}" TextColor="Red" />
+    </VerticalStackLayout>
+</ContentPage>

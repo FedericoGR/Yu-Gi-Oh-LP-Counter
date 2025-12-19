@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="YugiohLifeCounter.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:YugiohLifeCounter"
-    Shell.FlyoutBehavior="Disabled"
-    Title="YugiohLifeCounter">
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:YugiohLifeCounter.Views"
+       x:Class="YugiohLifeCounter.AppShell">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="Duel" Route="duel">
+        <ShellContent Title="Life Counter"
+                      ContentTemplate="{DataTemplate views:DuelPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Tools" Route="tools">
+        <ShellContent Title="Tools"
+                      ContentTemplate="{DataTemplate views:ToolsPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Settings" Route="settings">
+        <ShellContent Title="Settings"
+                      ContentTemplate="{DataTemplate views:SettingsPage}" />
+    </FlyoutItem>
 
 </Shell>

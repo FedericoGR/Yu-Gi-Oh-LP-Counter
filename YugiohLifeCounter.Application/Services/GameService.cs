@@ -1,11 +1,12 @@
 ﻿using YugiohLifeCounter.Core;
 using YugiohLifeCounter.Core.Models;
 
-namespace YugiohLifeCounter.Application;
+namespace YugiohLifeCounter.Application.Services;
 
 public sealed class GameService
 {
     private readonly GameEngine engine = new();
+
     public GameState State { get; } = new();
 
     public void AddDelta(PlayerId player, int delta) => this.engine.ApplyDelta(this.State, player, delta);

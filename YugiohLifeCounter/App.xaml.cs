@@ -2,9 +2,9 @@
 
 public partial class App : Microsoft.Maui.Controls.Application
 {
-    public App(MainPage page)
+    public App()
     {
         this.InitializeComponent();
-        this.MainPage = page;
+        this.MainPage = new AppShell();
     }
 }

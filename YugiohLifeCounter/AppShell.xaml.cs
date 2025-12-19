@@ -1,10 +1,14 @@
-﻿namespace YugiohLifeCounter
+﻿using YugiohLifeCounter.Navigation;
+using YugiohLifeCounter.Views;
+
+namespace YugiohLifeCounter;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        this.InitializeComponent();
+
+        Routing.RegisterRoute(Routes.Calculator, typeof(CalculatorPage));
     }
 }

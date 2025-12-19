@@ -73,4 +73,22 @@
 	  <ProjectReference Include="..\YugiohLifeCounter.Core\YugiohLifeCounter.Core.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="DuelPage.xaml.cs">
+	    <DependentUpon>DuelPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\CalculatorPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ToolsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

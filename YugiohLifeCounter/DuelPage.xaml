@@ -1,25 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="YugiohLifeCounter.MainPage">
+             xmlns:models="clr-namespace:YugiohLifeCounter.Core.Models;assembly=YugiohLifeCounter.Core"
+             x:Class="YugiohLifeCounter.Views.DuelPage"
+             Title="Duel">
+
     <VerticalStackLayout Padding="16" Spacing="12">
 
         <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+
             <Frame Grid.Column="0" Padding="16">
-                <VerticalStackLayout>
-                    <Label Text="Jugador 1" FontSize="18"/>
-                    <Label Text="{Binding P1LifePoints}" FontSize="48"/>
-                    <Button Text="-100" Command="{Binding P1Minus100Command}"/>
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Player 1" FontSize="18" />
+                    <Label Text="{Binding P1LifePoints}" FontSize="48" />
+                    <Button Text="Edit" Command="{Binding OpenCalculatorCommand}" CommandParameter="{x:Static models:PlayerId.P1}" />
+                    <Button Text="-100" Command="{Binding P1Minus100Command}" />
                 </VerticalStackLayout>
             </Frame>
 
             <Frame Grid.Column="1" Padding="16">
-                <VerticalStackLayout>
-                    <Label Text="Jugador 2" FontSize="18"/>
-                    <Label Text="{Binding P2LifePoints}" FontSize="48"/>
-                    <Button Text="-100" Command="{Binding P2Minus100Command}"/>
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Player 2" FontSize="18" />
+                    <Label Text="{Binding P2LifePoints}" FontSize="48" />
+                    <Button Text="Edit" Command="{Binding OpenCalculatorCommand}" CommandParameter="{x:Static models:PlayerId.P2}" />
+                    <Button Text="-100" Command="{Binding P2Minus100Command}" />
                 </VerticalStackLayout>
             </Frame>
+
         </Grid>
 
         <HorizontalStackLayout Spacing="12">
@@ -27,7 +34,7 @@
             <Button Text="Redo" Command="{Binding RedoCommand}" />
         </HorizontalStackLayout>
 
-        <Label Text="Log" FontSize="18"/>
+        <Label Text="Log" FontSize="18" />
         <CollectionView ItemsSource="{Binding Log}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
